@@ -38,7 +38,7 @@ class CustomUser(AbstractBaseUser):
 
     objects = CustomUserManager()
 
-    def __str__(self):
+    def str(self):
         return self.email
 
     def has_perm(self, perm, obj=None):
@@ -46,3 +46,6 @@ class CustomUser(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return self.is_superuser
+
+    class Meta:
+        verbose_name_plural = 'Users'
