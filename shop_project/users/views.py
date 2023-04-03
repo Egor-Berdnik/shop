@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from djoser.views import UserViewSet
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
@@ -13,7 +12,7 @@ class SomeView(APIView):
     permission_classes = (IsAuthenticated, )
 
     def get(self, request):
-        return Response('Darow')
+        return Response('Darowwws')
 
 
 class ActivateUser(UserViewSet):
@@ -25,4 +24,3 @@ class ActivateUser(UserViewSet):
         kwargs['data'] = {"uid": self.kwargs['uid'], "token": self.kwargs['token']}
 
         return serializer_class(*args, **kwargs)
-
