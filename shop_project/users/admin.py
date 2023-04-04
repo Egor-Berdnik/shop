@@ -15,7 +15,7 @@ class CustomUserAdmin(UserAdmin):
         ('Important dates', {'fields': ('last_login',)}),
     )
     filter_horizontal = ()
-    ordering = ('email',)
+    ordering = ('email', )
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
