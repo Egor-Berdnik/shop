@@ -33,6 +33,9 @@ class Discount(models.Model):
     date_start = models.DateField()
     date_end = models.DateField()
 
+    class Meta:
+        verbose_name_plural = 'Discounts'
+
     def __str__(self):
         return self.name
 
