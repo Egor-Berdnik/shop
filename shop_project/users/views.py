@@ -12,7 +12,7 @@ class SomeView(APIView):
     permission_classes = (IsAuthenticated, )
 
     def get(self, request):
-        return Response('Darowwws')
+        return Response('User view works good')
 
 
 class ActivateUser(UserViewSet):
