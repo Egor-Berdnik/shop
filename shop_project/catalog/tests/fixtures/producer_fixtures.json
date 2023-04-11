@@ -1,0 +1,20 @@
+[
+  {
+    "model": "catalog.producer",
+    "pk": 1,
+    "fields": {
+        "name": "HP",
+        "description": "4444444444444",
+        "country": "USA"
+    }
+},
+{
+    "model": "catalog.producer",
+    "pk": 2,
+    "fields": {
+        "name": "ACER",
+        "description": "5555555555",
+        "country": "Taiwan"
+    }
+}
+]

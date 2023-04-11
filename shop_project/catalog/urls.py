@@ -6,7 +6,7 @@ from catalog.views import ProducersListView, DiscountsListView, PromocodesListVi
 urlpatterns = [
 
     #Client
-    path('categories/', CategoriesListView.as_view(), name='category'),
+    path('categories/', CategoriesListView.as_view(), name='categories'),
     path('categories/<int:category_id>/', CategoryProductsView.as_view(), name='category-products'),
 
     path('producers/', ProducersListView.as_view(), name='producer'),

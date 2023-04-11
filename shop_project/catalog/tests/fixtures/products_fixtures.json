@@ -1,0 +1,44 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Laptop1",
+        "price": "1000.00",
+        "count_on_stock": 2,
+        "articul": "123qwe456rty",
+        "description": "1111111111",
+        "discount": 2,
+        "category": 1,
+        "producer": 2
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Laptop2",
+        "price": "2000.00",
+        "count_on_stock": 1,
+        "articul": "qaz369wsx741",
+        "description": "222222222222",
+        "discount": 1,
+        "category": 1,
+        "producer": 1
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Sweater1",
+        "price": "20.00",
+        "count_on_stock": 10,
+        "articul": "zxc789dsa456",
+        "description": "33333333333",
+        "discount": null,
+        "category": 2,
+        "producer": 3
+    }
+}
+]

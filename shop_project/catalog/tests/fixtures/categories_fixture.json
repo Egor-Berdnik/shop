@@ -1,0 +1,206 @@
+[
+{
+    "model": "users.customuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$R2RDk4w3i9nCMm6QSitkfp$ZbE1dBBje1ejFUga4ASxOwRTcrarQCpaNsi3zLRaACs=",
+        "last_login": "2023-03-31T15:59:50.450Z",
+        "email": "test@test.com",
+        "first_name": null,
+        "last_name": null,
+        "phone_number": null,
+        "cashback_points": 0,
+        "is_staff": true,
+        "is_active": true,
+        "is_superuser": true,
+        "date_joined": "2023-03-31T15:58:59.668Z"
+    }
+},
+{
+    "model": "users.customuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$7Ko6dTTJdUCTG7RT6q85HQ$CN0kIZST00D9c/zHeQ4eZL4EBonSPoGLCgJn0O3041o=",
+        "last_login": null,
+        "email": "goldenbereg97@gmail.com",
+        "first_name": null,
+        "last_name": null,
+        "phone_number": null,
+        "cashback_points": 0,
+        "is_staff": false,
+        "is_active": true,
+        "is_superuser": false,
+        "date_joined": "2023-03-31T16:01:05.353Z"
+    }
+},
+{
+    "model": "catalog.cashback",
+    "pk": 1,
+    "fields": {
+        "percent": 5,
+        "threshold": 100
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Electronics",
+        "description": "11111111"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Clothes",
+        "description": "222222222"
+    }
+},
+{
+    "model": "catalog.producer",
+    "pk": 1,
+    "fields": {
+        "name": "HP",
+        "description": "4444444444444",
+        "country": "USA"
+    }
+},
+{
+    "model": "catalog.producer",
+    "pk": 2,
+    "fields": {
+        "name": "ACER",
+        "description": "5555555555",
+        "country": "Taiwan"
+    }
+},
+{
+    "model": "catalog.producer",
+    "pk": 3,
+    "fields": {
+        "name": "H&M",
+        "description": "66666666666666",
+        "country": "Sweden"
+    }
+},
+{
+    "model": "catalog.discount",
+    "pk": 1,
+    "fields": {
+        "percent": 3,
+        "name": "First buy",
+        "date_start": "2023-03-01",
+        "date_end": "2023-03-31"
+    }
+},
+{
+    "model": "catalog.discount",
+    "pk": 2,
+    "fields": {
+        "percent": 10,
+        "name": "On second stuff in check",
+        "date_start": "2023-03-31",
+        "date_end": "2023-05-31"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Laptop1",
+        "price": "1000.00",
+        "count_on_stock": 2,
+        "articul": "123qwe456rty",
+        "description": "1111111111",
+        "discount": 2,
+        "category": 1,
+        "producer": 2
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Laptop2",
+        "price": "2000.00",
+        "count_on_stock": 1,
+        "articul": "qaz369wsx741",
+        "description": "222222222222",
+        "discount": 1,
+        "category": 1,
+        "producer": 1
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Sweater1",
+        "price": "20.00",
+        "count_on_stock": 10,
+        "articul": "zxc789dsa456",
+        "description": "33333333333",
+        "discount": null,
+        "category": 2,
+        "producer": 3
+    }
+},
+{
+    "model": "catalog.promocode",
+    "pk": 1,
+    "fields": {
+        "name": "Promo1",
+        "percent": 5,
+        "date_start": "2023-03-01",
+        "date_end": "2023-03-31",
+        "is_cumulative": false
+    }
+},
+{
+    "model": "catalog.promocode",
+    "pk": 2,
+    "fields": {
+        "name": "Promo2",
+        "percent": 10,
+        "date_start": "2023-03-31",
+        "date_end": "2023-04-30",
+        "is_cumulative": true
+    }
+},
+{
+    "model": "catalog.basket",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "product": 1,
+        "count": 1
+    }
+},
+{
+    "model": "catalog.basket",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "product": 2,
+        "count": 2
+    }
+},
+{
+    "model": "catalog.order",
+    "pk": 1,
+    "fields": {
+        "date_created": "2023-03-31T17:21:42Z",
+        "promocode": 1,
+        "delivery_time": "2023-04-01T12:00:00Z",
+        "delivery_notif_in_time": 6,
+        "delivery_method": "Courier",
+        "delivery_address": "qwertyui",
+        "delivery_status": "In process",
+        "payment_method": "Card",
+        "payment_status": "In process",
+        "user": 1,
+        "result_price": "1000.00"
+    }
+}
+]
