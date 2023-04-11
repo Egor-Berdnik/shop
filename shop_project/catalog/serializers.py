@@ -2,7 +2,7 @@ from itertools import product
 from unicodedata import category
 from rest_framework import serializers
 from datetime import date
-from catalog.models import Category, Producer, Discount, Promocode, Product
+from catalog.models import Category, Producer, Discount, Promocode, Product, OrderProducts, Order
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -79,3 +79,23 @@ class AddProductSerializer(serializers.Serializer):
 
 class DeleteProductSerializer(serializers.Serializer):
     product_id = serializers.IntegerField()
+
+
+class OrderProductsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderProducts
+        fields = ("product", "count")
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ["date_created", "promocode", "delivery_time",
+                  "delivery_notif_in_time", "delivery_method",
+                  "delivery_address", "delivery_status", "payment_method",
+                  "payment_status", "user", "result_price", "products"]
+        read_only_fields = ["date_created", "delivery_status",
+                            "payment_status", "result_price"]
+
+    def create(self, validated_data):
+        pass
