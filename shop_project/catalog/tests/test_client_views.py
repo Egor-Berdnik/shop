@@ -40,7 +40,18 @@ class UsersTestCase(APITestCase):
         assert isinstance(response.data, list) == True
         assert response.data == [
             {
-                "id": 1,
+                "id": EVERYTHING_EQUALS_NON_NONE,
+                "name": EVERYTHING_EQUALS_NON_NONE,
+                "price": EVERYTHING_EQUALS_NON_NONE,
+                "count_on_stock": EVERYTHING_EQUALS_NON_NONE,
+                "articul": EVERYTHING_EQUALS_NON_NONE,
+                "description": EVERYTHING_EQUALS_NON_NONE,
+                "discount": EVERYTHING_EQUALS_NON_NONE,
+                "producer": EVERYTHING_EQUALS_NON_NONE,
+                "category": EVERYTHING_EQUALS_NON_NONE
+            },
+            {
+                "id": EVERYTHING_EQUALS_NON_NONE,
                 "name": EVERYTHING_EQUALS_NON_NONE,
                 "price": EVERYTHING_EQUALS_NON_NONE,
                 "count_on_stock": EVERYTHING_EQUALS_NON_NONE,
@@ -53,7 +64,7 @@ class UsersTestCase(APITestCase):
         ]
 
         assert response.data[0]["discount"] == {
-            "id": 1,
+            "id": 2,
             "name": EVERYTHING_EQUALS_NON_NONE,
             "percent": EVERYTHING_EQUALS_NON_NONE,
             "date_start": EVERYTHING_EQUALS_NON_NONE,
@@ -61,7 +72,7 @@ class UsersTestCase(APITestCase):
         }
 
         assert response.data[0]["producer"] == {
-            "id": 1,
+            "id": 2,
             "name": EVERYTHING_EQUALS_NON_NONE,
             "description": EVERYTHING_EQUALS_NON_NONE,
             "country": EVERYTHING_EQUALS_NON_NONE

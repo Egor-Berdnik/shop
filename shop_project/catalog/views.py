@@ -139,3 +139,5 @@ class BasketView(APIView):
         Basket.objects.get(user=request.user, product=product).delete()
 
         return Response()
+
+
