@@ -95,25 +95,6 @@ class ProductsListView(ListAPIView):
     serializer_class = ProductSerializer
 
 
-class OrderView(APIView):
-    permission_classes = (IsAuthenticated, )
-
-    @swagger_auto_schema(
-        request_body=OrderSerializer,
-        request_method='POST',
-        responses={
-            200: OrderSerializer
-        }
-    )
-    def post(self, request):
-        input_serializer = OrderSerializer(data=request.data, context={"request": request})
-        input_serializer.is_valid(raise_exception=True)
-
-        order = input_serializer.save()
-
-        return Response(input_serializer.data)
-
-
 class BasketView(APIView):
     permission_classes = (IsAuthenticated, )
 
@@ -171,7 +152,7 @@ class OrderView(APIView):
         request_body=OrderSerializer,
         request_method='POST',
         responses={
-            200: 'OrderSerializer'
+            200: OrderSerializer
         }
     )
     def post(self, request):
