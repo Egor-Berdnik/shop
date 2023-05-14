@@ -7,9 +7,11 @@ from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.mixins import ListModelMixin
 from catalog.serializers import CategorySerializer, ProducerSerializer, DiscountSerializer, PromocodeSerializer, \
-    ProductSerializer, BasketSerializer, AddProductSerializer, DeleteProductSerializer
+    ProductSerializer, BasketSerializer, AddProductSerializer, DeleteProductSerializer, OrderSerializer
 from django.db.models import F
 from django.shortcuts import get_object_or_404
+from catalog.tasks import some_task
+from drf_yasg.utils import swagger_auto_schema
 
 
 class CategoriesListView(ListAPIView):
@@ -23,6 +25,7 @@ class CategoryProductsView(APIView):
 
     def get(self, request, category_id):
         queryset = Product.objects.filter(category__id=category_id)
+        some_task.delay()
         serializer = ProductSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -91,6 +94,25 @@ class ProductsListView(ListAPIView):
     serializer_class = ProductSerializer
 
 
+class OrderView(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    @swagger_auto_schema(
+        request_body=OrderSerializer,
+        request_method='POST',
+        responses={
+            200: OrderSerializer
+        }
+    )
+    def post(self, request):
+        input_serializer = OrderSerializer(data=request.data, context={"request": request})
+        input_serializer.is_valid(raise_exception=True)
+
+        order = input_serializer.save()
+
+        return Response(input_serializer.data)
+
+
 class BasketView(APIView):
     permission_classes = (IsAuthenticated, )
 
@@ -139,3 +161,22 @@ class BasketView(APIView):
         Basket.objects.get(user=request.user, product=product).delete()
 
         return Response()
+
+
+class OrderView(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    @swagger_auto_schema(
+        request_body=OrderSerializer,
+        request_method='POST',
+        responses={
+            200: 'OrderSerializer'
+        }
+    )
+    def post(self, request):
+        input_serializer = OrderSerializer(data=request.data, context={'request': request})
+        input_serializer.is_valid(raise_exception=True)
+
+        order = input_serializer.save()
+
+        return Response(input_serializer.data)
