@@ -2,6 +2,7 @@ from itertools import product
 from unicodedata import category
 from rest_framework import serializers
 from datetime import date
+from django.db.transaction import atomic
 from catalog.models import Category, Producer, Discount, Promocode, Product, OrderProducts, Order, Cashback
 
 

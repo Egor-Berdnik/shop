@@ -7,7 +7,8 @@ from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.mixins import ListModelMixin
 from catalog.serializers import CategorySerializer, ProducerSerializer, DiscountSerializer, PromocodeSerializer, \
-    ProductSerializer, BasketSerializer, AddProductSerializer, DeleteProductSerializer, OrderSerializer
+    ProductSerializer, BasketSerializer, AddProductSerializer, DeleteProductSerializer, OrderSerializer, \
+    OrderProductsSerializer
 from django.db.models import F
 from django.shortcuts import get_object_or_404
 from catalog.tasks import some_task
