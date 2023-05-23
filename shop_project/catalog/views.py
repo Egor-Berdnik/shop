@@ -162,6 +162,3 @@ class OrderView(APIView):
         order = input_serializer.save()
 
         return Response(input_serializer.data)
-
-
-
