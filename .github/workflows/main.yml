@@ -26,3 +26,7 @@ jobs:
           python - m pip install --upgrade pip
           pip install -r shop_project/requirements.txt
 
+      - name: Lint with Prospector
+        run:
+          prospector
+
