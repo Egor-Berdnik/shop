@@ -1,6 +1,7 @@
 from django.urls import path
 from catalog.views import ProducersListView, DiscountsListView, PromocodesListView, \
-    ProductsListView, CategoriesListView, CategoryProductsView, ProducerProductView, DiscountProductsView, BasketView
+    ProductsListView, CategoriesListView, CategoryProductsView, ProducerProductView, DiscountProductsView, BasketView, \
+    OrderView
 # CategoryView
 
 urlpatterns = [
@@ -18,6 +19,7 @@ urlpatterns = [
     path('promocodes/', PromocodesListView.as_view(), name='promocodes'),
     path('products/', ProductsListView.as_view(), name='products'),
 
-    #Customer
-    path('cart/', BasketView.as_view(), name='user-basket')
+    #Customers views
+    path('cart/', BasketView.as_view(), name='user-basket'),
+    path('orders/', OrderView.as_view(), name='create-order')
 ]
