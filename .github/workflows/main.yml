@@ -2,9 +2,9 @@ name: Django CI
 
 on:
   push:
-    branches: [ feature/add_ci_pipeline ]
+    branches: [ feature/add_ci_pipeline ] #develop
   pull_request:
-    branches: [ feature/add_ci_pipeline ]
+    branches: [ feature/add_ci_pipeline ] #develop
 
 jobs:
   build:
